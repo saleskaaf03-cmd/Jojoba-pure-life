@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العرض الفني والتسويقي | Jojoba Pure Life × Kaf Marketing</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Cairo & IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kaaf: {
+                            blue: '#0A4C86',
+                            blueLight: '#1C75C8',
+                            blueDeep: '#05233E',
+                            blueDarkest: '#031424',
+                            green: '#00875A',
+                            greenLight: '#00B377',
+                            greenDeep: '#023824',
+                            gold: '#D4AF37',
+                            goldLight: '#F5DE88',
+                            purple: '#7C3AED',
+                            purpleLight: '#A78BFA',
+                            rose: '#E11D48',
+                            roseLight: '#FB7185',
+                            cyan: '#06B6D4',
+                            cyanLight: '#67E8F9',
+                            amber: '#F59E0B',
+                            dark: '#030812',
+                            darkSlate: '#081220',
+                            cardBg: '#0B1A2E',
+                            border: '#1B314B'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                        ibm: ['IBM Plex Sans Arabic', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 40px -10px rgba(10, 76, 134, 0.7)',
+                        'glow-green': '0 0 40px -10px rgba(0, 135, 90, 0.7)',
+                        'glow-purple': '0 0 40px -10px rgba(124, 58, 237, 0.7)',
+                        'glow-gold': '0 0 40px -10px rgba(212, 175, 55, 0.6)',
+                        'web-card': '0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Cairo', 'IBM Plex Sans Arabic', sans-serif;
+            background-color: #030812;
+            color: #E2E8F0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030812;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1B314B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00B377;
+        }
+
+        /* Fullscreen Interactive Canvas */
+        #interactive-bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        /* Top Accent Ribbon */
+        .kaaf-colorful-ribbon {
+            background: linear-gradient(90deg, 
+                #0A4C86 0%, 
+                #06B6D4 20%, 
+                #00875A 40%, 
+                #D4AF37 60%, 
+                #7C3AED 80%, 
+                #E11D48 100%
+            );
+            height: 4px;
+        }
+
+        /* Web Glassmorphic Card Styles */
+        .web-card-blue {
+            background: linear-gradient(135deg, rgba(10, 30, 56, 0.82) 0%, rgba(5, 16, 32, 0.94) 100%);
+            border: 1px solid rgba(28, 117, 200, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-blue:hover {
+            border-color: rgba(28, 117, 200, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(10, 76, 134, 0.5);
+        }
+
+        .web-card-green {
+            background: linear-gradient(135deg, rgba(8, 38, 28, 0.82) 0%, rgba(4, 20, 15, 0.94) 100%);
+            border: 1px solid rgba(0, 179, 119, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-green:hover {
+            border-color: rgba(0, 179, 119, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0, 135, 90, 0.5);
+        }
+
+        .web-card-purple {
+            background: linear-gradient(135deg, rgba(30, 18, 54, 0.82) 0%, rgba(14, 8, 28, 0.94) 100%);
+            border: 1px solid rgba(167, 139, 250, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-purple:hover {
+            border-color: rgba(167, 139, 250, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(124, 58, 237, 0.5);
+        }
+
+        .web-card-cyan {
+            background: linear-gradient(135deg, rgba(8, 36, 48, 0.82) 0%, rgba(4, 18, 26, 0.94) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-cyan:hover {
+            border-color: rgba(6, 182, 212, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.5);
+        }
+
+        .web-card-amber {
+            background: linear-gradient(135deg, rgba(38, 28, 12, 0.82) 0%, rgba(20, 14, 6, 0.94) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-amber:hover {
+            border-color: rgba(245, 158, 11, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.5);
+        }
+
+        .web-card-rose {
+            background: linear-gradient(135deg, rgba(40, 14, 28, 0.82) 0%, rgba(20, 6, 14, 0.94) 100%);
+            border: 1px solid rgba(251, 113, 133, 0.35);
+            backdrop-filter: blur(14px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-rose:hover {
+            border-color: rgba(251, 113, 133, 0.85);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(225, 29, 72, 0.5);
+        }
+
+        .web-card-gold {
+            background: linear-gradient(135deg, rgba(35, 26, 8, 0.88) 0%, rgba(16, 12, 4, 0.96) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            backdrop-filter: blur(16px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .web-card-gold:hover {
+            border-color: rgba(212, 175, 55, 0.9);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Floating Icon Animations */
+        @keyframes float-alive-left {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+                box-shadow: 0 10px 25px -5px rgba(10, 76, 134, 0.6), 0 0 20px rgba(30, 117, 198, 0.4);
+            }
+            50% {
+                transform: translateY(-9px) rotate(1deg);
+                box-shadow: 0 20px 35px -5px rgba(10, 76, 134, 0.8), 0 0 32px rgba(30, 117, 198, 0.65);
+            }
+        }
+
+        @keyframes float-alive-right {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 10px 25px -5px rgba(37, 211, 102, 0.5), 0 0 20px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                transform: translateY(-9px) scale(1.04);
+                box-shadow: 0 20px 35px -5px rgba(37, 211, 102, 0.8), 0 0 32px rgba(37, 211, 102, 0.65);
+            }
+        }
+
+        .animate-floating-kaaf {
+            animation: float-alive-left 4s ease-in-out infinite;
+        }
+
+        .animate-floating-whatsapp {
+            animation: float-alive-right 4s ease-in-out infinite 0.7s;
+        }
+
+        /* Nav link marker */
+        .nav-link {
+            position: relative;
+            transition: color 0.2s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: #00B377;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 1.5cm;
+            }
+            body {
+                background-color: #FFFFFF !important;
+                color: #0F172A !important;
+            }
+            #interactive-bg-canvas, #floating-kaaf-btn, #floating-wa-btn, .no-print, header {
+                display: none !important;
+            }
+            .web-card-blue, .web-card-green, .web-card-purple, .web-card-cyan, .web-card-amber, .web-card-rose, .web-card-gold {
+                background: #FFFFFF !important;
+                color: #0F172A !important;
+                border: 1px solid #CBD5E1 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+            }
+            h1, h2, h3, h4 {
+                color: #05233E !important;
+                page-break-after: avoid;
+            }
+            .text-white, .text-gray-200, .text-gray-300, .text-gray-400 {
+                color: #1E293B !important;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-kaaf-green selection:text-white">
+
+    <!-- INTERACTIVE HTML5 CANVAS BACKGROUND -->
+    <canvas id="interactive-bg-canvas"></canvas>
+
+    <!-- Top Accent Ribbon -->
+    <div class="kaaf-colorful-ribbon fixed top-0 left-0 right-0 z-50"></div>
+
+    <!-- TOP WEBSITE NAVIGATION BAR -->
+    <header id="top-nav" class="sticky top-1 z-50 bg-kaaf-dark/85 backdrop-blur-xl border-b border-kaaf-border/70 px-4 lg:px-12 py-3.5 transition-all">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Brand Logo & Identity -->
+            <a href="#cover" class="flex items-center gap-3.5 group">
+                <div class="w-11 h-11 rounded-2xl overflow-hidden border border-kaaf-greenLight/50 p-0.5 bg-black shrink-0 shadow-glow-green transition-transform group-hover:scale-105">
+                    <img src="https://i.ibb.co/WvLtprx9/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="Kaf Marketing Logo" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-base font-black text-white tracking-wide font-ibm">Kaf <span class="text-kaaf-greenLight">Marketing</span></span>
+                        <span class="px-2 py-0.5 rounded-full bg-kaaf-green/30 text-kaaf-greenLight text-[10px] font-extrabold border border-kaaf-green/50">خطة تسويق 3 أشهر</span>
+                    </div>
+                    <p class="text-[11px] text-gray-400 font-medium">Digital Growth • E-Commerce • Influencers</p>
+                </div>
+            </a>
+
+            <!-- Desktop Website Navigation Links -->
+            <nav class="hidden lg:flex items-center gap-4 text-xs font-bold text-gray-300">
+                <a href="#cover" class="nav-link hover:text-white">الرئيسية</a>
+                <a href="#summary" class="nav-link hover:text-white">الملخص التنفيذي</a>
+                <a href="#services" class="nav-link hover:text-white">نطاق الخدمات (9)</a>
+                <a href="#roadmap" class="nav-link hover:text-white">خطة الـ 3 أشهر</a>
+                <a href="#deliverables" class="nav-link hover:text-white">المخرجات المستهدفة</a>
+                <a href="#pricing" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-kaaf-green to-kaaf-greenLight text-white font-black hover:brightness-110 shadow-sm transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-receipt text-xs"></i>
+                    <span>الاستثمار المالي (36,500 ريال)</span>
+                </a>
+            </nav>
+
+            <!-- Actions Header Info -->
+            <div class="flex items-center gap-3">
+                <div class="hidden sm:flex flex-col text-left font-ibm border-l border-kaaf-border/80 pl-3">
+                    <span class="text-[10px] text-kaaf-greenLight font-bold uppercase">PREPARED EXCLUSIVELY FOR</span>
+                    <span class="text-xs font-black text-white">Jojoba Pure Life</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FLOATING KAAF LOGO BUTTON (BOTTOM LEFT) -->
+    <aside id="floating-kaaf-btn" class="fixed bottom-6 left-6 z-50">
+        <a href="#cover" title="Kaf Marketing | خطة النمو الرقمي" class="block w-14 h-14 rounded-full overflow-hidden border-2 border-kaaf-greenLight/90 p-0.5 bg-black/90 animate-floating-kaaf transition-transform hover:scale-115 active:scale-95 group backdrop-blur-md">
+            <img src="https://i.ibb.co/WvLtprx9/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="Kaf Marketing Logo" class="w-full h-full object-cover rounded-full">
+        </a>
+    </aside>
+
+    <!-- FLOATING WHATSAPP BUTTON (BOTTOM RIGHT) -->
+    <aside id="floating-wa-btn" class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/966579534107?text=السلام%20عليكم،%20أود%20مناقشة%20واعتماد%20العرض%20التسويقي%20لـ%20Jojoba%20Pure%20Life" target="_blank" title="تواصل معنا مباشرة عبر واتساب" class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center border-2 border-emerald-200/80 animate-floating-whatsapp transition-transform hover:scale-115 active:scale-95 group shadow-lg">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+        </a>
+    </aside>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-20">
+
+        <!-- ========================================================================= -->
+        <!-- 01 — HERO COVER SECTION                                                   -->
+        <!-- ========================================================================= -->
+        <section id="cover" class="relative rounded-[32px] overflow-hidden p-8 sm:p-14 lg:p-16 web-card-green text-white backdrop-blur-lg">
+            <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <!-- Left Hero Details -->
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-kaaf-green/30 border border-kaaf-greenLight/40 text-kaaf-greenLight text-xs font-bold font-ibm tracking-wide">
+                        <i class="fa-solid fa-leaf text-kaaf-greenLight"></i>
+                        <span>العرض الفني والتسويقي المعتمد • مدة التعاقد: 3 أشهر</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+                            Jojoba Pure Life
+                            <span class="block text-xl sm:text-3xl text-transparent bg-clip-text bg-gradient-to-l from-kaaf-greenLight via-emerald-200 to-kaaf-cyanLight font-ibm mt-2">
+                                منظومة النمو التسويقي الشاملة والتجارة الإلكترونية
+                            </span>
+                        </h1>
+                        <p class="text-lg sm:text-2xl font-bold text-emerald-100/90 font-cairo">
+                            مقدم من شركة كاف للتسويق الإلكتروني – Kaf Marketing
+                        </p>
+                    </div>
+
+                    <p class="text-sm sm:text-base text-gray-300 leading-relaxed max-w-2xl font-normal">
+                        خطة تسويقية متكاملة تهدف لتعزيز حضور Jojoba Pure Life في السوق السعودي، وزيادة الوعي بمنتجات العناية الطبيعية بالجوجوبا، وبناء ثقة العملاء، وتحقيق نمو ملموس في مبيعات المتجر الإلكتروني.
+                    </p>
+
+                    <!-- Trust Metrics Bar -->
+                    <div class="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
+                        <div class="p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <i class="fa-solid fa-chart-line text-kaaf-greenLight mb-1 block text-lg"></i>
+                            <span class="text-xs text-gray-300 font-bold block">إعلانات ممولة متكاملة</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <i class="fa-solid fa-users-viewfinder text-kaaf-purpleLight mb-1 block text-lg"></i>
+                            <span class="text-xs text-gray-300 font-bold block">20 مشهوراً ومؤثراً</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <i class="fa-solid fa-brain text-kaaf-cyanLight mb-1 block text-lg"></i>
+                            <span class="text-xs text-gray-300 font-bold block">SEO + GEO ذكاء اصطناعي</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-black/50 border border-white/10 text-center">
+                            <i class="fa-solid fa-store text-kaaf-gold mb-1 block text-lg"></i>
+                            <span class="text-xs text-gray-300 font-bold block">تحسين متجر سلة + CRO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Card -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="w-full max-w-sm space-y-4 p-6 rounded-3xl bg-kaaf-cardBg/90 border border-kaaf-green/50 shadow-2xl backdrop-blur-md">
+                        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+                            <span class="text-xs font-black text-white flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                بيانات وثيقة العرض المعتمد
+                            </span>
+                            <span class="text-[10px] text-kaaf-greenLight font-mono font-bold">KAF STRATEGY</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs">
+                            <div class="p-3 rounded-xl bg-kaaf-darkSlate/90 border border-white/10 flex justify-between items-center">
+                                <span class="text-gray-400">الجهة المقدمة:</span>
+                                <span class="font-bold text-white">Kaf Marketing</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-kaaf-darkSlate/90 border border-white/10 flex justify-between items-center">
+                                <span class="text-gray-400">العميل المستهدف:</span>
+                                <span class="font-bold text-kaaf-greenLight">Jojoba Pure Life</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-kaaf-darkSlate/90 border border-white/10 flex justify-between items-center">
+                                <span class="text-gray-400">مدة الخطة:</span>
+                                <span class="font-bold text-white">3 أشهر متواصلة</span>
+                            </div>
+                        </div>
+
+                        <div class="pt-2">
+                            <a href="#pricing" class="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-kaaf-green via-kaaf-greenLight to-kaaf-cyan text-white font-black text-xs hover:brightness-110 shadow-md transition">
+                                <span>استعراض الاستثمار (36,500 ريال)</span>
+                                <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 02 — EXECUTIVE SUMMARY                                                    -->
+        <!-- ========================================================================= -->
+        <section id="summary" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-kaaf-border/60 pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-green/30 text-kaaf-greenLight font-black text-xs border border-kaaf-green/50">01</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">الملخص التنفيذي</h2>
+                </div>
+                <span class="text-xs text-kaaf-greenLight font-bold hidden sm:inline">Executive Overview</span>
+            </div>
+
+            <div class="web-card-green rounded-3xl p-8 sm:p-10 shadow-web-card space-y-6">
+                <p class="text-base sm:text-lg text-gray-200 leading-relaxed font-medium">
+                    تقدم شركة <strong class="text-white">كاف للتسويق الإلكتروني (Kaf Marketing)</strong> خطة تسويقية متكاملة لعلامة <strong class="text-kaaf-greenLight">Jojoba Pure Life</strong>، تهدف إلى تعزيز حضور العلامة التجارية في السوق السعودي، وزيادة الوعي بمنتجاتها الطبيعية، وبناء ثقة العملاء، وتحقيق نمو ملموس في المبيعات والطلبات عبر المتجر الإلكتروني.
+                </p>
+                <p class="text-base sm:text-lg text-gray-200 leading-relaxed font-medium">
+                    تعتمد الخطة على الدمج بين التسويق الرقمي، والإعلانات الممولة عبر كافة المنصات، وتحسين محركات البحث التقليدية (SEO) والحديثة (GEO)، والتسويق عبر 20 مشهوراً ومؤثراً، إلى جانب تحسين تجربة المستخدم داخل متجر "سلة" وإضافة كافة المنتجات الـ 14 وتطوير آليات التواصل وتفعيل خدمة الموديريشن والـ WhatsApp Automation.
+                </p>
+
+                <!-- Core Pillars Icons Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4 border-t border-white/10">
+                    <div class="p-4 rounded-2xl bg-black/50 border border-kaaf-green/40 flex items-center gap-3">
+                        <i class="fa-solid fa-bullseye text-kaaf-greenLight text-2xl"></i>
+                        <div>
+                            <span class="text-xs text-gray-400 block font-medium">استهداف استراتيجي</span>
+                            <span class="text-sm font-bold text-white">الرياض، جدة، مكة، الدمام</span>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-black/50 border border-kaaf-cyan/40 flex items-center gap-3">
+                        <i class="fa-solid fa-arrows-spin text-kaaf-cyanLight text-2xl"></i>
+                        <div>
+                            <span class="text-xs text-gray-400 block font-medium">منظومة شمولية</span>
+                            <span class="text-sm font-bold text-white">Omnichannel Marketing</span>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-black/50 border border-kaaf-gold/40 flex items-center gap-3">
+                        <i class="fa-solid fa-chart-pie text-kaaf-gold text-2xl"></i>
+                        <div>
+                            <span class="text-xs text-gray-400 block font-medium">قياس مدفوع بالبيانات</span>
+                            <span class="text-sm font-bold text-white">GA4 & Custom Dashboards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 03 — SCOPE OF SERVICES (9 DETAILED PILLARS)                               -->
+        <!-- ========================================================================= -->
+        <section id="services" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-kaaf-border/60 pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-blue/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-blue/50">02</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">نطاق الخدمات المقدمة (9 محاور أساسية)</h2>
+                </div>
+                <span class="text-xs text-kaaf-cyanLight font-bold hidden sm:inline">Scope of Services</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- 1. Paid Ads -->
+                <div class="web-card-blue p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-blue/40 text-kaaf-cyanLight font-mono font-bold text-xs">01</span>
+                        <i class="fa-solid fa-rectangle-ad text-kaaf-cyanLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">1. إدارة الحملات الإعلانية الممولة (Paid Ads)</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        إدارة وتشغيل الحملات عبر المنصات الرقمية الأكثر تأثيراً بالسوق السعودي: <strong>Google Ads, Snapchat Ads, TikTok Ads, Instagram Ads, Facebook Ads</strong>.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>استهداف المدن الرئيسية: الرياض، جدة، مكة، الدمام.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>إعادة استهداف زوار المتجر والعملاء المحتملين (Retargeting).</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>اختبار الإعلانات A/B Testing وتوزيع الميزانيات بكفاءة.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 2. SEO -->
+                <div class="web-card-green p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-green/40 text-kaaf-greenLight font-mono font-bold text-xs">02</span>
+                        <i class="fa-solid fa-magnifying-glass text-kaaf-greenLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">2. تحسين محركات البحث (SEO)</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        رفع ظهور متجر Jojoba Pure Life في نتائج البحث المجانية على Google واستهداف الكلمات المفتاحية الأكثر بحثاً.
+                    </p>
+                    <div class="p-3 rounded-2xl bg-black/50 border border-kaaf-green/30 text-xs space-y-1">
+                        <span class="text-kaaf-greenLight font-bold block">الكلمات المستهدفة:</span>
+                        <span class="text-gray-300 text-[11px]">زيت الجوجوبا • سيروم الجوجوبا • شامبو طبيعي • صابون الجوجوبا • منتجات العناية الطبيعية • الجوجوبا للشعر والبشرة.</span>
+                    </div>
+                    <ul class="space-y-1 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-greenLight mt-0.5"></i> <span>تهيئة Google Business Profile وتحسين Metadata وOn-Page SEO.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 3. GEO -->
+                <div class="web-card-purple p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-purple/40 text-kaaf-purpleLight font-mono font-bold text-xs">03</span>
+                        <i class="fa-solid fa-robot text-kaaf-purpleLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">3. تحسين الظهور بالذكاء الاصطناعي (GEO)</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        تطوير ظهور العلامة التجارية في إجابات وتوصيات محركات البحث التوليدية ومنصات الذكاء الاصطناعي (ChatGPT, Perplexity, Gemini).
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-purpleLight mt-0.5"></i> <span>تحليل حضور البراند في أدوات الذكاء الاصطناعي مقارنة بالمنافسين.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-purpleLight mt-0.5"></i> <span>إنشاء محتوى مهيأ للإجابات التوليدية وتعزيز موثوقية مصادر البيانات.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 4. Salla Store CRO -->
+                <div class="web-card-cyan p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-cyan/40 text-kaaf-cyanLight font-mono font-bold text-xs">04</span>
+                        <i class="fa-solid fa-cart-shopping text-kaaf-cyanLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">4. تحسين متجر سلة (Salla CRO)</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        تطوير تجربة المستخدم لزيادة معدلات التحويل وإضافة المنتجات الـ 14 بشكل احترافي.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>إضافة المنتجات الـ 14 وكتابة وصف تسويقي واحترافي شامل لكل منتج.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>تحسين الصور والتصنيفات وتسهيل رحلة الشراء وربط أدوات التحليل.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 5. WhatsApp Campaigns -->
+                <div class="web-card-amber p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-amber/40 text-kaaf-gold font-mono font-bold text-xs">05</span>
+                        <i class="fa-brands fa-whatsapp text-kaaf-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">5. الحملات الإعلانية عبر WhatsApp</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        تفعيل قناة مباشرة للتواصل المباشر وإعادة استهداف العملاء المهتمين وتحفيز إعادة الشراء.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-gold mt-0.5"></i> <span>تقسيم الجمهور وفق السلوك الشرائي وإعداد رسائل تسويقية موجهة.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-gold mt-0.5"></i> <span>الترويج للعروض والمنتجات الجديدة ومتابعة معدلات الاستجابة.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 6. Social Media Management -->
+                <div class="web-card-rose p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-rose/40 text-kaaf-roseLight font-mono font-bold text-xs">06</span>
+                        <i class="fa-solid fa-hashtag text-kaaf-roseLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">6. إدارة حسابات التواصل الاجتماعي</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        إدارة وتطوير الحسابات الرسمية: <strong>Instagram, Snapchat, TikTok, Facebook, X, YouTube</strong>.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-roseLight mt-0.5"></i> <span>إعداد خطة محتوى شهرية وتصميم منشورات وقصص موحدة الهوية.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-roseLight mt-0.5"></i> <span>إبراز مميزات منتجات الجوجوبا وتطوير محتوى يدعم مبيعات الإعلانات.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 7. Moderation -->
+                <div class="web-card-blue p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-blue/40 text-kaaf-cyanLight font-mono font-bold text-xs">07</span>
+                        <i class="fa-solid fa-headset text-kaaf-cyanLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">7. خدمة إدارة تواصل العملاء (Moderation)</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        توفير فريق متخصص للرد السريع على استفسارات العملاء والتعليقات والرسائل في المنصات.
+                    </p>
+                    <ul class="space-y-2 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>الرد على أسئلة المنتجات وتوجيه المهتمين نحو رابط المتجر.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-check text-kaaf-cyanLight mt-0.5"></i> <span>التعامل الاحترافي مع الشكاوى والحفاظ على صورة العلامة التجارية.</span></li>
+                    </ul>
+                </div>
+
+                <!-- 8. Influencer Marketing -->
+                <div class="web-card-gold p-6 sm:p-8 rounded-3xl space-y-4 md:col-span-2">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-gold/40 text-kaaf-goldLight font-mono font-bold text-xs">08</span>
+                        <i class="fa-solid fa-star text-kaaf-gold text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">8. التسويق عبر المشاهير والمؤثرين (20 مشهوراً ومؤثراً)</h3>
+                    <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                        تنفيذ حملات مؤثرين مكثفة للوصول إلى شرائح واسعة ومستهدفة بالسعودية، مع ضمانات تشغيلية محددة.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div class="p-3.5 rounded-2xl bg-black/60 border border-kaaf-gold/30">
+                            <strong class="text-kaaf-gold block mb-1">الالتزام بالمخرجات:</strong>
+                            <span class="text-gray-300">توفير 20 مشهوراً وفق المعايير والتوافق مع فئة العناية الطبيعية.</span>
+                        </div>
+                        <div class="p-3.5 rounded-2xl bg-black/60 border border-kaaf-gold/30">
+                            <strong class="text-kaaf-gold block mb-1">آلية الاستبدال المضمونة:</strong>
+                            <span class="text-gray-300">استبدال أي مؤثر في حال عدم الالتزام بالمتطلبات أو المخرجات حسب العقد.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Dashboard & Tracking -->
+                <div class="web-card-green p-6 sm:p-8 rounded-3xl space-y-4 md:col-span-2">
+                    <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                        <span class="px-3 py-1 rounded-full bg-kaaf-green/40 text-kaaf-greenLight font-mono font-bold text-xs">09</span>
+                        <i class="fa-solid fa-chart-line text-kaaf-greenLight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-white">9. لوحة متابعة الأداء والتتبع (Dashboard & Tracking)</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-gray-300">
+                        <div class="space-y-2 p-4 rounded-2xl bg-black/50 border border-white/10">
+                            <h4 class="font-bold text-kaaf-greenLight flex items-center gap-2">
+                                <i class="fa-solid fa-gauge-high"></i>
+                                أولاً: Dashboard التفاعلية
+                            </h4>
+                            <p>لوحة متابعة موحدة تمكن العميل من تتبع أداء الحملات والزيارات والطلبات ومؤشرات المشاهير وتقارير الأداء بشكل دائم.</p>
+                        </div>
+                        <div class="space-y-2 p-4 rounded-2xl bg-black/50 border border-white/10">
+                            <h4 class="font-bold text-kaaf-greenLight flex items-center gap-2">
+                                <i class="fa-solid fa-code-compare"></i>
+                                ثانياً: Tracking البنية التقنية
+                            </h4>
+                            <p>ربط Google Analytics 4 وTag Manager وأحداث متجر سلة وتتبع أداء روابط المشاهير بروابط UTM مخصصة.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 04 — 3-MONTH IMPLEMENTATION ROADMAP                                       -->
+        <!-- ========================================================================= -->
+        <section id="roadmap" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-kaaf-border/60 pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-purple/30 text-kaaf-purpleLight font-black text-xs border border-kaaf-purple/50">03</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">خطة التنفيذ والعمل خلال 3 أشهر</h2>
+                </div>
+                <span class="text-xs text-kaaf-purpleLight font-bold hidden sm:inline">Execution Roadmap</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <!-- Month 1 -->
+                <div class="web-card-blue p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                        <span class="text-xs font-mono font-bold text-kaaf-cyanLight">MONTH 01</span>
+                        <i class="fa-solid fa-rocket text-kaaf-cyanLight"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white">الشهر الأول: التأسيس والتجهيز والانطلاق</h3>
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-cyanLight mt-1 text-[10px]"></i> <span>تحليل الوضع الحالي والجمهور والمنافسين.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-cyanLight mt-1 text-[10px]"></i> <span>بدء أعمال SEO & GEO وتحديد الكلمات المفتاحية.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-cyanLight mt-1 text-[10px]"></i> <span>تحسين متجر سلة وإضافة المنتجات الـ 14 وتنسيقها.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-cyanLight mt-1 text-[10px]"></i> <span>ربط أدوات التتبع (GA4, GTM) وتهيئة الحملات.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-cyanLight mt-1 text-[10px]"></i> <span>إطلاق حسابات التواصل، الموديريشن، وخطة المشاهير.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Month 2 -->
+                <div class="web-card-purple p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                        <span class="text-xs font-mono font-bold text-kaaf-purpleLight">MONTH 02</span>
+                        <i class="fa-solid fa-chart-line text-kaaf-purpleLight"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white">الشهر الثاني: التوسع وتحسين الأداء</h3>
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-purpleLight mt-1 text-[10px]"></i> <span>متابعة وتحسين أداء الحملات الممولة والإعلانات.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-purpleLight mt-1 text-[10px]"></i> <span>بدء تنفيذ حملات المشاهير وفق الجدول المعتمد.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-purpleLight mt-1 text-[10px]"></i> <span>تفعيل حملات WhatsApp وإعادة استهداف العملاء.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-purpleLight mt-1 text-[10px]"></i> <span>تطوير محتوى التواصل الاجتماعي بناءً على التفاعل.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-purpleLight mt-1 text-[10px]"></i> <span>تقديم تقرير أداء شامل ومراجعة المؤشرات.</span></li>
+                    </ul>
+                </div>
+
+                <!-- Month 3 -->
+                <div class="web-card-gold p-6 sm:p-8 rounded-3xl space-y-4">
+                    <div class="flex justify-between items-center border-b border-white/10 pb-3">
+                        <span class="text-xs font-mono font-bold text-kaaf-gold">MONTH 03</span>
+                        <i class="fa-solid fa-trophy text-kaaf-gold"></i>
+                    </div>
+                    <h3 class="text-lg font-black text-white">الشهر الثالث: تعزيز النتائج ورفع الكفاءة</h3>
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-gold mt-1 text-[10px]"></i> <span>تركيز الإنفاق على القنوات الأكثر تحقيقاً للنتائج.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-gold mt-1 text-[10px]"></i> <span>استكمال تنفيذ كافة حملات المشاهير الـ 20.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-gold mt-1 text-[10px]"></i> <span>تعزيز ترتيب المتجر في محركات البحث والذكاء الاصطناعي.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-gold mt-1 text-[10px]"></i> <span>تحليل أداء المؤثرين والعائد النهائي.</span></li>
+                        <li class="flex items-start gap-2"><i class="fa-solid fa-circle-dot text-kaaf-gold mt-1 text-[10px]"></i> <span>تقديم التقرير الختامي والتوصيات للفترة القادمة.</span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 05 — TARGET DELIVERABLES                                                  -->
+        <!-- ========================================================================= -->
+        <section id="deliverables" class="space-y-6">
+            <div class="flex items-center justify-between border-b border-kaaf-border/60 pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-cyan/30 text-kaaf-cyanLight font-black text-xs border border-kaaf-cyan/50">04</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">المخرجات المستهدفة بنهاية الخطة</h2>
+                </div>
+                <span class="text-xs text-kaaf-cyanLight font-bold hidden sm:inline">Target Outcomes</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="web-card-blue p-5 rounded-2xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-blue/40 flex items-center justify-center text-kaaf-cyanLight text-lg">
+                        <i class="fa-solid fa-building-flag"></i>
+                    </div>
+                    <h4 class="text-sm font-black text-white">ترسيخ حضور البراند بالسعودية</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed">بناء وعي وثقة عالية بمنتجات Jojoba Pure Life في الرياض والمدن الكبرى.</p>
+                </div>
+
+                <div class="web-card-green p-5 rounded-2xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-green/40 flex items-center justify-center text-kaaf-greenLight text-lg">
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+                    </div>
+                    <h4 class="text-sm font-black text-white">زيادة الزيارات ومعدلات التحويل</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed">تحسين المتجر وزيادة الزيارات المستهدفة والتحويلات البيعية الفعالة.</p>
+                </div>
+
+                <div class="web-card-purple p-5 rounded-2xl space-y-2">
+                    <div class="w-10 h-10 rounded-xl bg-kaaf-purple/40 flex items-center justify-center text-kaaf-purpleLight text-lg">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <h4 class="text-sm font-black text-white">منظومة تتبع وتقارير متكاملة</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed">توفير بيانات دقيقة تساعد على اتخاذ قرارات تسويقية مستدامة مستقبلاً.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 06 — COMMERCIAL OFFER / FINANCIAL INVESTMENT                              -->
+        <!-- ========================================================================= -->
+        <section id="pricing" class="space-y-8">
+            <div class="flex items-center justify-between border-b border-kaaf-border/60 pb-3">
+                <div class="flex items-center gap-3">
+                    <span class="px-3 py-1 rounded-full bg-kaaf-green/30 text-kaaf-greenLight font-black text-xs border border-kaaf-green/50">05</span>
+                    <h2 class="text-2xl sm:text-3xl font-black text-white tracking-wide">الاستثمار المالي الشامل (3 أشهر)</h2>
+                </div>
+                <span class="text-xs text-kaaf-greenLight font-bold hidden sm:inline">Financial Investment</span>
+            </div>
+
+            <!-- Total Investment Prominent Box -->
+            <div class="relative overflow-hidden rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-kaaf-greenDeep/95 via-kaaf-darkSlate to-kaaf-dark border-2 border-kaaf-greenLight/60 shadow-glow-green backdrop-blur-xl">
+                <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-7 space-y-3 text-center lg:text-right">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-kaaf-green/30 border border-kaaf-greenLight/40 text-kaaf-greenLight text-xs font-black">
+                            <i class="fa-solid fa-shield-halved text-kaaf-greenLight"></i>
+                            <span>عرض أسعار شامل لكافة محاور العمل لمدة 3 أشهر</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-white">إجمالي الاستثمار المالي المطلوبة</h3>
+                        <p class="text-xs sm:text-sm text-gray-300 max-w-xl">
+                            يشمل الإدارات التسويقية والإعلانات، الـ SEO، الـ GEO، تحسين سلة، الموديريشن، الـ WhatsApp، و20 مشهوراً ومؤثراً.
+                        </p>
+                    </div>
+
+                    <div class="lg:col-span-5 text-center bg-black/70 border border-kaaf-greenLight/50 rounded-3xl p-6 sm:p-8 shadow-2xl">
+                        <span class="text-xs font-bold text-gray-400 block mb-1">إجمالي قيمة العرض (3 أشهر)</span>
+                        <div class="text-4xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-kaaf-greenLight via-emerald-200 to-kaaf-cyanLight font-ibm tracking-tight">
+                            36,500 <span class="text-2xl sm:text-3xl text-kaaf-greenLight font-cairo">SAR</span>
+                        </div>
+                        <span class="inline-block mt-3 px-4 py-1 rounded-full bg-kaaf-green/30 text-kaaf-greenLight text-xs font-black border border-kaaf-green/50">
+                            فقط ستة وثلاثون ألفاً وخمسمائة ريال سعودي
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Itemized Pricing Table -->
+            <div class="web-card-green p-8 rounded-3xl space-y-6 shadow-web-card">
+                <h4 class="text-lg font-black text-white flex items-center gap-2">
+                    <i class="fa-solid fa-calculator text-kaaf-greenLight"></i>
+                    جدول تفاصيل الاستثمار المالي حسب الخدمة
+                </h4>
+
+                <div class="overflow-x-auto rounded-2xl border border-white/10">
+                    <table class="w-full text-right text-xs sm:text-sm">
+                        <thead class="bg-black/60 text-gray-300 font-bold border-b border-white/10">
+                            <tr>
+                                <th class="p-4">الخدمة / المحور التسويقي</th>
+                                <th class="p-4 text-center">مدة التنفيذ</th>
+                                <th class="p-4 text-center">التكلفة (ريال سعودي)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5 text-gray-200">
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-bold text-white">إدارة الحملات الإعلانية الممولة (Paid Ads)</td>
+                                <td class="p-4 text-center text-gray-400">3 أشهر</td>
+                                <td class="p-4 text-center font-bold text-white font-mono">6,500 SAR</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-bold text-white">إدارة حسابات التواصل الاجتماعي والتصميم (6 منصات)</td>
+                                <td class="p-4 text-center text-gray-400">3 أشهر</td>
+                                <td class="p-4 text-center font-bold text-white font-mono">5,000 SAR</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-bold text-white">تحسين محركات البحث (SEO) وتصدر الكلمات</td>
+                                <td class="p-4 text-center text-gray-400">3 أشهر</td>
+                                <td class="p-4 text-center font-bold text-white font-mono">6,000 SAR</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-bold text-white">تحسين الظهور في محركات الذكاء الاصطناعي (GEO)</td>
+                                <td class="p-4 text-center text-gray-400">3 أشهر</td>
+                                <td class="p-4 text-center font-bold text-white font-mono">4,500 SAR</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-bold text-white">خدمة إدارة تواصل العملاء والردود (Moderation)</td>
+                                <td class="p-4 text-center text-gray-400">3 أشهر</td>
+                                <td class="p-4 text-center font-bold text-white font-mono">4,500 SAR</td>
+                            </tr>
+                            <tr class="hover:bg-white/5 transition">
+                                <td class="p-4 font-bold text-white">توفير وإدارة 20 مشهوراً ومؤثراً (Influencers)</td>
+                                <td class="p-4 text-center text-gray-400">خلال فترة التعاقد</td>
+                                <td class="p-4 text-center font-bold text-kaaf-gold font-mono">10,000 SAR</td>
+                            </tr>
+                            <tr class="bg-black/80 font-black text-white">
+                                <td class="p-4 text-base" colspan="2">إجمالي الاستثمار المالي النهائي</td>
+                                <td class="p-4 text-center text-xl text-kaaf-greenLight font-ibm">36,500 SAR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Terms & Ad Budget Notice Box -->
+                <div class="p-4 rounded-2xl bg-black/60 border border-kaaf-amber/40 text-xs text-gray-300 space-y-2">
+                    <div class="flex items-center gap-2 text-kaaf-gold font-bold">
+                        <i class="fa-solid fa-circle-exclamation text-base"></i>
+                        <span>شروط وآلية سداد الميزانيات الإعلانية:</span>
+                    </div>
+                    <p class="leading-relaxed">
+                        • ميزانيات الإنفاق الإعلاني المباشر على المنصات (Ad Budgets) غير مشمولة في قيمة العرض الإداري أعلاه، وتُسدد مباشرة للمنصات الإعلانية أو بحسب الاتفاق الكتابي مسبقاً.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================================= -->
+        <!-- 07 — CLOSING & CALL TO ACTION                                             -->
+        <!-- ========================================================================= -->
+        <section id="closing" class="relative rounded-[32px] overflow-hidden p-8 sm:p-14 web-card-green text-center space-y-8 shadow-web-card">
+            <div class="kaaf-colorful-ribbon absolute top-0 left-0 right-0"></div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <i class="fa-solid fa-quote-right text-4xl text-kaaf-greenLight"></i>
+                <h2 class="text-2xl sm:text-3xl font-black text-white leading-relaxed">
+                    "في Kaf Marketing نؤمن أن بناء علامة تجارية قوية لا يعتمد فقط على إطلاق الحملات، بل على تكامل جميع العناصر بدءاً من المتجر مروراً بالوصول الذكي وصولاً لبناء الثقة والطلب المستدام."
+                </h2>
+            </div>
+
+            <div class="pt-6 border-t border-white/10 max-w-xl mx-auto space-y-4">
+                <span class="text-xs font-mono font-bold text-kaaf-greenLight uppercase tracking-widest block">YOUR GROWTH IS OUR MISSION</span>
+                <h3 class="text-xl sm:text-2xl font-black text-white font-ibm">
+                    جاهزون لبدء رحلة التوسع والشراكة الناجحة
+                </h3>
+
+                <div class="pt-4 flex flex-wrap justify-center gap-4">
+                    <a href="https://wa.me/966579534107?text=السلام%20عليكم،%20أود%20تأكيد%20اعتماد%20العرض%20التسويقي%20لـ%20Jojoba%20Pure%20Life%20بمبلغ%2036500%20ريال" target="_blank" class="no-print px-8 py-3.5 rounded-2xl bg-gradient-to-r from-kaaf-green via-kaaf-greenLight to-kaaf-cyan text-white font-black text-xs hover:shadow-lg hover:shadow-kaaf-green/30 transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>اعتماد العرض الفوري عبر الواتساب</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-kaaf-border/60 bg-kaaf-dark/95 py-10 text-xs text-gray-400 mt-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-xl overflow-hidden bg-black border border-kaaf-greenLight/50 flex items-center justify-center p-0.5">
+                    <img src="https://i.ibb.co/WvLtprx9/Whats-App-Image-2026-08-26-at-11-29-58.jpg" alt="Kaf Marketing Logo" class="w-full h-full object-cover rounded-lg">
+                </div>
+                <div>
+                    <span class="block font-bold text-white">KAF MARKETING</span>
+                    <span class="block text-[10px] text-gray-400">Digital Growth • E-Commerce • Influencers</span>
+                </div>
+            </div>
+
+            <div class="text-center md:text-right">
+                <span class="block font-bold text-gray-200">العرض الفني والتسويقي المعتمد</span>
+                <span class="block text-gray-400">Jojoba Pure Life</span>
+            </div>
+
+            <div class="text-gray-400 font-mono text-[10px]">
+                &copy; Kaf Marketing. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE HTML5 CANVAS SCRIPT -->
+    <script>
+        (function() {
+            const canvas = document.getElementById('interactive-bg-canvas');
+            const ctx = canvas.getContext('2d');
+
+            let width, height;
+            let particles = [];
+            const particleCount = 45;
+            const colors = ['#0A4C86', '#06B6D4', '#00875A', '#7C3AED', '#D4AF37'];
+
+            let mouse = {
+                x: null,
+                y: null,
+                radius: 140
+            };
+
+            function resize() {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            }
+
+            window.addEventListener('resize', resize);
+            window.addEventListener('mousemove', function(e) {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
+            window.addEventListener('mouseout', function() {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            // Touch events for mobile
+            window.addEventListener('touchmove', function(e) {
+                if (e.touches.length > 0) {
+                    mouse.x = e.touches[0].clientX;
+                    mouse.y = e.touches[0].clientY;
+                }
+            }, { passive: true });
+            window.addEventListener('touchend', function() {
+                mouse.x = null;
+                mouse.y = null;
+            });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width;
+                    this.y = Math.random() * height;
+                    this.vx = (Math.random() - 0.5) * 0.8;
+                    this.vy = (Math.random() - 0.5) * 0.8;
+                    this.radius = Math.random() * 2.5 + 1.5;
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                    this.baseAlpha = Math.random() * 0.4 + 0.3;
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    // Bounce on screen edges
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+
+                    // Mouse interaction
+                    if (mouse.x !== null && mouse.y !== null) {
+                        let dx = mouse.x - this.x;
+                        let dy = mouse.y - this.y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+                        if (distance < mouse.radius) {
+                            let force = (mouse.radius - distance) / mouse.radius;
+                            let directionX = (dx / distance) * force * 3;
+                            let directionY = (dy / distance) * force * 3;
+                            this.x -= directionX;
+                            this.y -= directionY;
+                        }
+                    }
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.globalAlpha = this.baseAlpha;
+                    ctx.fill();
+                }
+            }
+
+            function init() {
+                resize();
+                particles = [];
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push(new Particle());
+                }
+            }
+
+            function connect() {
+                const maxDistance = 140;
+                for (let a = 0; a < particles.length; a++) {
+                    for (let b = a + 1; b < particles.length; b++) {
+                        let dx = particles[a].x - particles[b].x;
+                        let dy = particles[a].y - particles[b].y;
+                        let distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < maxDistance) {
+                            let opacity = (1 - (distance / maxDistance)) * 0.25;
+                            ctx.beginPath();
+                            ctx.moveTo(particles[a].x, particles[a].y);
+                            ctx.lineTo(particles[b].x, particles[b].y);
+                            ctx.strokeStyle = '#00B377';
+                            ctx.globalAlpha = opacity;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+                ctx.globalAlpha = 1;
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+                }
+                connect();
+
+                requestAnimationFrame(animate);
+            }
+
+            window.onload = function() {
+                init();
+                animate();
+            };
+        })();
+    </script>
+</body>
+</html>
